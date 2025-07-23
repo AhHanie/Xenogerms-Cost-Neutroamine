@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xenogerms Cost Neutroamine", "Xenogerms Cost Neutroamine.csproj", "{23262ADC-19C8-41C0-BE71-7C13A6651724}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23262ADC-19C8-41C0-BE71-7C13A6651724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23262ADC-19C8-41C0-BE71-7C13A6651724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23262ADC-19C8-41C0-BE71-7C13A6651724}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23262ADC-19C8-41C0-BE71-7C13A6651724}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D670EB8-4E94-4049-87C9-CC474F11E2B0}
+	EndGlobalSection
+EndGlobal

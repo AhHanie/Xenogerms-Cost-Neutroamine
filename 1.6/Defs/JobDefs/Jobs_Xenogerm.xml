@@ -1,0 +1,8 @@
+<Defs>
+  <JobDef>
+    <defName>SK_XCN_HaulMultipleToContainer</defName>
+    <driverClass>SK.Xenogerms_Cost_Neutroamine.JobDriver_HaulMultipleToContainer</driverClass>
+    <reportString>Hauling ingredients to gene assembler.</reportString>
+    <suspendable>false</suspendable>
+  </JobDef>
+</Defs>
