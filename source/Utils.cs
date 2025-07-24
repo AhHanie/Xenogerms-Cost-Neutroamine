@@ -147,5 +147,14 @@ namespace SK.Xenogerms_Cost_Neutroamine
         {
             return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(ThingDefOf.ArchiteCapsule), PathEndMode.ClosestTouch, TraverseParms.For(pawn), 9999f, (Thing x) => !x.IsForbidden(pawn) && pawn.CanReserve(x));
         }
+
+        public static int CalculcateNeutroamineRequired(int complexity, int architesRequired)
+        {
+            if (ModSettings.hardmode.Value && architesRequired > 0)
+            {
+                return (complexity * ModSettings.neutroaminePerComplexity.Value) * ModSettings.architeGenesMultiplier.Value * architesRequired;
+            }
+            return complexity * ModSettings.neutroaminePerComplexity.Value;
+        }
     }
 }

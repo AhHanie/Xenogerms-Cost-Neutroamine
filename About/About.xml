@@ -22,5 +22,5 @@
   </modDependencies>
   <packageId>sk.xcn</packageId>
   <description>Adds a neutroamine requirement to xenogerm creation, scaling with gene complexity.</description>
-  <modVersion>1.0</modVersion>
+  <modVersion>1.1</modVersion>
 </ModMetaData>

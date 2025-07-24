@@ -40,7 +40,7 @@ namespace SK.Xenogerms_Cost_Neutroamine
         {
             BiostatData[] extendedBiostats = GetExtendedBiostats(___Biostats);
 
-            DrawExtendedBioStatsTable(rect, gcx, met, arc, gcx * ModSettings.neutroaminePerComplexity.Value, drawMax, ignoreLimits, extendedBiostats, ___truncateCache, ref ___cachedWidth, maxGCX);
+            DrawExtendedBioStatsTable(rect, gcx, met, arc, Utils.CalculcateNeutroamineRequired(gcx, arc), drawMax, ignoreLimits, extendedBiostats, ___truncateCache, ref ___cachedWidth, maxGCX);
 
             return false;
         }
@@ -48,7 +48,6 @@ namespace SK.Xenogerms_Cost_Neutroamine
         private static void DrawExtendedBioStatsTable(Rect rect, int gcx, int met, int arc, int neutroamine, bool drawMax, bool ignoreLimits, BiostatData[] biostats, Dictionary<string, string> truncateCache, ref float cachedWidth, int maxGCX = -1)
         {
             int num = ((arc > 0) ? biostats.Length : (biostats.Length - 1));
-            Log.Message($"Drawing Table: {num}");
             float num2 = Utils.MaxLabelWidth(arc, biostats);
             float num3 = rect.height / (float)num;
 
@@ -146,19 +145,19 @@ namespace SK.Xenogerms_Cost_Neutroamine
             GUI.EndGroup();
         }
 
-        public static void CanAcceptPostfix(ref bool __result, int ___gcx, Building_GeneAssembler ___geneAssembler)
+        public static void CanAcceptPostfix(ref bool __result, int ___gcx, int ___arc, Building_GeneAssembler ___geneAssembler)
         {
-           if (!Utils.ColonyHasEnoughNeutroamine(___gcx * ModSettings.neutroaminePerComplexity.Value, ___geneAssembler))
+           if (!Utils.ColonyHasEnoughNeutroamine(Utils.CalculcateNeutroamineRequired(___gcx, ___arc), ___geneAssembler))
            {
                 Messages.Message("SK.XCN.NotEnoughNeutroamine".Translate(), null, MessageTypeDefOf.RejectInput, historical: false);
                 __result = false;
            }
         }
 
-        public static void GeneAssemblerStartPostfix(Building_GeneAssembler __instance, List<Genepack> ___genepacksToRecombine)
+        public static void GeneAssemblerStartPostfix(Building_GeneAssembler __instance, int architesRequired, List<Genepack> ___genepacksToRecombine)
         {
             NeutroamineRequiredComp comp = __instance.TryGetComp<NeutroamineRequiredComp>();
-            comp.NeutroamineRequired = Utils.CalculateComplexity(___genepacksToRecombine) * ModSettings.neutroaminePerComplexity.Value;
+            comp.NeutroamineRequired = Utils.CalculcateNeutroamineRequired(Utils.CalculateComplexity(___genepacksToRecombine), architesRequired);
         }
 
         public static void GeneAssemblerFinishPrefix(Building_GeneAssembler __instance)

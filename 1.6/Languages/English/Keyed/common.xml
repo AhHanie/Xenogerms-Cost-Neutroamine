@@ -4,4 +4,7 @@
   <SK.XCN.Neutroamine.description>The amount of neutroamine required to assemble this xenogerm. Higher complexity xenogerms require more neutroamine for stabilization during the assembly process.</SK.XCN.Neutroamine.description>
   <SK.XCN.NotEnoughNeutroamine>Not enough neutroamine</SK.XCN.NotEnoughNeutroamine>
   <SK.XCN.ModSettingsNeutroaminePerComplexity>Neutroamine/Complexity: </SK.XCN.ModSettingsNeutroaminePerComplexity>
+  <SK.XCN.ModSettingsHardmode>Enable Hardmode: </SK.XCN.ModSettingsHardmode>
+  <SK.XCN.ModSettingsHardmodeTooltip>Neutroamine cost will now have a multiplier for archite genes</SK.XCN.ModSettingsHardmodeTooltip>
+  <SK.XCN.ModSettingsArchiteGenesMultiplier>Archite Genes Multiplier: </SK.XCN.ModSettingsArchiteGenesMultiplier>
 </LanguageData>
