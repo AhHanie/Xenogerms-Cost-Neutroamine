@@ -13,8 +13,8 @@ namespace SK.Xenogerms_Cost_Neutroamine
             Harmony instance = new Harmony("rimworld.sk.xenogermscostneutroamine");
             HarmonyPatcher.instance = instance;
 
-            // Fires when all Defs are loaded
-             LongEventHandler.ExecuteWhenFinished(Init);
+             LongEventHandler.QueueLongEvent(InitAsync, "SK.Xenogerms_Cost_Neutroamine.InitAsync", true, null);
+            LongEventHandler.QueueLongEvent(InitSync, "SK.Xenogerms_Cost_Neutroamine.InitSync", false, null);
         }
 
         public override string SettingsCategory()
@@ -28,7 +28,7 @@ namespace SK.Xenogerms_Cost_Neutroamine
             base.DoSettingsWindowContents(rect);
         }
 
-        public void Init()
+        public void InitAsync()
         {
             GetSettings<ModSettings>();
             ThingDef geneAssemblerDef = DefDatabase<ThingDef>.AllDefsListForReading.Find(def => def.defName == "GeneAssembler");
@@ -36,7 +36,12 @@ namespace SK.Xenogerms_Cost_Neutroamine
             geneAssemblerDef.comps.Add(compProperties);
             neutroamineDef = DefDatabase<ThingDef>.AllDefsListForReading.Find(def => def.defName == "Neutroamine");
             haulMultipleThingsToCotainnerDef = DefDatabase<JobDef>.AllDefsListForReading.Find(def => def.defName == "SK_XCN_HaulMultipleToContainer");
-            HarmonyPatcher.PatchVanillaMethods();
+            HarmonyPatcher.PatchVanillaMethodsAsync();
+        }
+
+        public void InitSync()
+        {
+            HarmonyPatcher.PatchVanillaMethodsSync();   
         }
     }
 }
